@@ -64,7 +64,7 @@ const Login = () => {
   
                       <div className="form-group">
                           <label htmlFor="email">Password</label>
-                          <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" className="form-control" placeholder="Enter your password" aria-describedby="password" />
+                          <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" className="form-control" placeholder="Enter your password" aria-describedby="helpId" />
                       </div>
                 <div className="btn-group">
                   <button type="submit" className="btn btn-primary mb-2 mr-1 waves-effect waves-light">Login</button>

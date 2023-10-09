@@ -10,6 +10,7 @@ const Sign_Up = () => {
     const [password, setPassword] = useState('');
     const [showerr, setShowerr] = useState('');
     const navigate = useNavigate();
+    
     const register = async (e) => {
         e.preventDefault();
         // API Call

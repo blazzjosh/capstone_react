@@ -1,10 +1,6 @@
-
 import logo from './logo.svg';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
-
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -30,7 +26,7 @@ const Navbar = () => {
         // remove email phone
         localStorage.removeItem("doctorData");
         setIsLoggedIn(false);
-        // setUsername("");
+        //setUsername("");
        
         // Remove the reviewFormData from local storage
         for (let i = 0; i < localStorage.length; i++) {
@@ -73,6 +69,9 @@ const Navbar = () => {
           <Link to="/search/doctors">Appointments</Link>
         </li>
         <li className="link">
+         <Link to="/instant-consultation">Instant Consultation</Link>
+        </li>
+        <li className="link">
           <Link to="/healthblog">Health Blog</Link>
         </li>
         <li className="link">
@@ -80,6 +79,7 @@ const Navbar = () => {
         </li>
         {isLoggedIn?(
           <>
+          <span>Welcome, testUser</span>
             <li className="link">
               <button className="btn2" onClick={handleLogout}>
                 Logout

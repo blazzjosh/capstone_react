@@ -13,7 +13,9 @@ const PORT = process.env.PORT || 8181;
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: '*'
+}));
 
 // Connect to MongoDB
 connectToMongo();
@@ -22,6 +24,7 @@ connectToMongo();
 app.use('/api/auth', require('./routes/auth'));
 
 app.get('/', (req, res) => {
+    
     res.send('Hello World!');
 });
 
