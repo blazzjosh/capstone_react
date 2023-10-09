@@ -13,7 +13,7 @@ const Login = () => {
       if (sessionStorage.getItem("auth-token")) {
         navigate("/")
       }
-    }, []);
+    }, [navigate]);
     const login = async (e) => {
       e.preventDefault();
       const res = await fetch(`${API_URL}/api/auth/login`, {
@@ -61,7 +61,11 @@ const Login = () => {
                           <label htmlFor="email">Email</label>
                           <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" className="form-control" placeholder="Enter your email" aria-describedby="helpId" />
                       </div>
-  //write logic code for password input box
+  
+                      <div className="form-group">
+                          <label htmlFor="email">Password</label>
+                          <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" className="form-control" placeholder="Enter your password" aria-describedby="password" />
+                      </div>
                 <div className="btn-group">
                   <button type="submit" className="btn btn-primary mb-2 mr-1 waves-effect waves-light">Login</button>
                 </div>
