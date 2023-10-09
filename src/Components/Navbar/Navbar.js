@@ -19,7 +19,7 @@ const Navbar = () => {
       </div>
       <ul className="nav__links active">
             <li class="link">
-                <a href="../Landing_Page/LandingPage.html">Home</a>
+                <a href="/">Home</a>
             </li>
             <li class="link">
                 <a href="##">Appointments</a>
@@ -31,12 +31,12 @@ const Navbar = () => {
                 <a href="##">Reviews</a>
             </li>
             <li class="link">
-                <a href="../Sign_Up/Sign_Up.html">
+                <a href="/signup">
                 <button class="btn1">Sign Up</button>
                 </a>
             </li>
             <li class="link">
-                <a href="../Login/Login.html">
+                <a href="/login">
                     <button class="btn1">Login</button>
                 </a>
             </li>
