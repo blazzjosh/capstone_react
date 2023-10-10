@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './Components/Navbar/Navbar';
 import Landing from './Components/Landing_Page/LandingPage';
 import InstantConsultation from './Components/InstantConsultationBooking/InstantConsultation';
+import FindDoctorSearch from './Components/FindDoctorSearch/FindDoctorSearch';
 import SignUp from './Components/Sign_Up/Sign_Up';
 import Login from './Components/Login/Login';
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} /> 
             <Route path="/login" element={<Login />} /> 
             <Route path="/instant-consultation" element={<InstantConsultation />} />
+            <Route path="/search/doctors" element={<FindDoctorSearch />} />
           </Routes>
         </BrowserRouter>
       </div>
