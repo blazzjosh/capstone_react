@@ -10,6 +10,8 @@ import InstantConsultation from './Components/InstantConsultationBooking/Instant
 import FindDoctorSearch from './Components/FindDoctorSearch/FindDoctorSearch';
 import SignUp from './Components/Sign_Up/Sign_Up';
 import Login from './Components/Login/Login';
+import Notification from './Components/Notification/Notification';
+
 
 
 
@@ -18,7 +20,7 @@ function App() {
     return (
       <div className="App">
         <BrowserRouter>
-          <Navbar />
+          <Notification />
           <Routes>
             <Route path="/" element={<Landing />} /> 
             <Route path="/signup" element={<SignUp />} /> 
