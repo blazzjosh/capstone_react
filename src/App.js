@@ -13,9 +13,6 @@ import Login from './Components/Login/Login';
 import Notification from './Components/Notification/Notification';
 
 
-
-
-
 function App() {
     return (
       <div className="App">

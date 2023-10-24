@@ -12,21 +12,34 @@ const Notification = ({ children }) => {
   useEffect(() => {
     const storedUsername = sessionStorage.getItem('email');
     const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
-    const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
+
     
     if (storedUsername) {
       setIsLoggedIn(true);
       setUsername(storedUsername);
     }
-    if (storedDoctorData) {
+
+      if (storedDoctorData) {
       setDoctorData(storedDoctorData);
     }
-    if (storedAppointmentData) {
-      setAppointmentData(storedAppointmentData);
-    }
 
-    console.log(appointmentData, username, isLoggedIn); // Log the updated values here
-  }, [isLoggedIn]);
+    // Get an array of doctor names
+    const doctorNames = Object.keys(storedDoctorData);
+    
+    
+    doctorNames.forEach(name => {
+        const storedAppointmentData = storedDoctorData[name];
+
+        if(storedAppointmentData){
+            setAppointmentData(storedAppointmentData)
+        }
+    });
+    
+
+    
+  }, []);
+
+ 
 
 
 

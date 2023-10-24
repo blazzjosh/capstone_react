@@ -41,9 +41,10 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
     setAppointments(updatedAppointments);
 
     // Update the doctorData in localStorage to include the new appointment
-    const updatedDoctorData = { ...doctorData, [name]: updatedAppointments };
+    const storedDoctorData = JSON.parse(localStorage.getItem('doctorData')) || {};
+
+    const updatedDoctorData = {...storedDoctorData, [name]: updatedAppointments,};
     localStorage.setItem('doctorData', JSON.stringify(updatedDoctorData));
-    
 
     setShowModal(false);
   };
