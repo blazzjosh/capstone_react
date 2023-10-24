@@ -8,6 +8,9 @@ const Notification = ({ children }) => {
   const [doctorData, setDoctorData] = useState(null);
   const [appointmentData, setAppointmentData] = useState(null);
   const [showNotification, setShowNotification] = useState(true);
+//   const [docSpeciality, setdocSpeciality] = useState("");
+
+
 
   useEffect(() => {
     const storedUsername = sessionStorage.getItem('email');
@@ -19,21 +22,31 @@ const Notification = ({ children }) => {
       setUsername(storedUsername);
     }
 
-      if (storedDoctorData) {
-      setDoctorData(storedDoctorData);
-    }
+    
 
     // Get an array of doctor names
-    const doctorNames = Object.keys(storedDoctorData);
     
+    if (storedDoctorData) {
+        // Get an array of doctor names
+        const doctorNames = Object.keys(storedDoctorData);
     
-    doctorNames.forEach(name => {
-        const storedAppointmentData = storedDoctorData[name];
+        doctorNames.forEach(name => {
+          const storedAppointmentData = storedDoctorData[name]
 
-        if(storedAppointmentData){
-            setAppointmentData(storedAppointmentData)
-        }
-    });
+          const {phoneNumber, name, time, date} = storedAppointmentData[0]
+          setAppointmentData({phoneNumber, name, time, date})
+    
+        //   if (storedDoctorData) {
+        //     setDoctorData({ name });
+        //   }
+    
+        //   if (storedAppointmentData) {
+        //     setAppointmentData(storedAppointmentData);
+        //     console.log(storedAppointmentData)
+        //   }
+
+        });
+      }
     
 
     
@@ -41,6 +54,7 @@ const Notification = ({ children }) => {
 
  
 
+ 
 
 
   // Function to handle appointment cancellation
@@ -62,6 +76,18 @@ const Notification = ({ children }) => {
             </p>
             <p>
               <strong>Doctor:</strong> {doctorData?.name}
+            </p>
+            <p>
+              <strong>Specialty:</strong> {doctorData?.name}
+            </p>
+            <p>
+              <strong>Phone Number:</strong> {doctorData?.phoneNumber}
+            </p>
+            <p>
+              <strong>Date of Appointment:</strong> {doctorData?.date}
+            </p>
+            <p>
+              <strong>Time Slot:</strong> {doctorData?.time}
             </p>
             {/* Add appointment time and date here */}
             {/* Example: <p><strong>Time:</strong> {appointmentData.time}</p> */}

@@ -28,7 +28,7 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
     setAppointments(updatedAppointments);
 
     // Update the doctorData in localStorage to reflect the canceled appointment
-    const updatedDoctorData = { ...doctorData, [name]: updatedAppointments };
+    const updatedDoctorData = { ...doctorData, [name]: updatedAppointments, speciality };
     localStorage.setItem('doctorData', JSON.stringify(updatedDoctorData));
   };
 
@@ -43,7 +43,7 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
     // Update the doctorData in localStorage to include the new appointment
     const storedDoctorData = JSON.parse(localStorage.getItem('doctorData')) || {};
 
-    const updatedDoctorData = {...storedDoctorData, [name]: updatedAppointments,};
+    const updatedDoctorData = {...storedDoctorData, [name]: updatedAppointments, speciality};
     localStorage.setItem('doctorData', JSON.stringify(updatedDoctorData));
 
     setShowModal(false);

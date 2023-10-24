@@ -13,7 +13,7 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
   
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      onSubmit({ name, phoneNumber });
+      onSubmit({ name, phoneNumber, date, time });
       setName('');
       setPhoneNumber('');
     };
