@@ -16,38 +16,30 @@ const Notification = ({ children }) => {
     const storedUsername = sessionStorage.getItem('email');
     const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
 
-    
     if (storedUsername) {
       setIsLoggedIn(true);
       setUsername(storedUsername);
     }
 
-    
-
-    // Get an array of doctor names
-    
     if (storedDoctorData) {
         // Get an array of doctor names
         const doctorNames = Object.keys(storedDoctorData);
-    
+        const allAppointments = [];
+
         doctorNames.forEach(name => {
-          const storedAppointmentData = storedDoctorData[name]
+            const storedAppointmentData = storedDoctorData[name].appointments;
 
-          const {phoneNumber, name, time, date} = storedAppointmentData[0]
-          setAppointmentData({phoneNumber, name, time, date})
-    
-        //   if (storedDoctorData) {
-        //     setDoctorData({ name });
-        //   }
-    
-        //   if (storedAppointmentData) {
-        //     setAppointmentData(storedAppointmentData);
-        //     console.log(storedAppointmentData)
-        //   }
+            if (storedAppointmentData && storedAppointmentData.length > 0) {
+                allAppointments.push(...storedAppointmentData);
+            }
 
+            setDoctorData({ name, speciality: storedDoctorData[name].speciality });
         });
-      }
-    
+
+        if (allAppointments.length > 0) {
+            setAppointmentData(allAppointments);
+        }
+    }
 
     
   }, []);
@@ -78,16 +70,16 @@ const Notification = ({ children }) => {
               <strong>Doctor:</strong> {doctorData?.name}
             </p>
             <p>
-              <strong>Specialty:</strong> {doctorData?.name}
+              <strong>Specialty:</strong> {doctorData?.speciality}
             </p>
             <p>
-              <strong>Phone Number:</strong> {doctorData?.phoneNumber}
+              <strong>Phone Number:</strong> {appointmentData?.phoneNumber}
             </p>
             <p>
-              <strong>Date of Appointment:</strong> {doctorData?.date}
+              <strong>Date of Appointment:</strong> {appointmentData?.date}
             </p>
             <p>
-              <strong>Time Slot:</strong> {doctorData?.time}
+              <strong>Time Slot:</strong> {appointmentData?.time}
             </p>
             {/* Add appointment time and date here */}
             {/* Example: <p><strong>Time:</strong> {appointmentData.time}</p> */}
