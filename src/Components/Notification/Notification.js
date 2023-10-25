@@ -25,6 +25,7 @@ const Notification = ({ children }) => {
         // Get an array of doctor names
         const doctorNames = Object.keys(storedDoctorData);
         const allAppointments = [];
+        let xx = {}
 
         doctorNames.forEach(name => {
             const storedAppointmentData = storedDoctorData[name].appointments;
@@ -33,7 +34,13 @@ const Notification = ({ children }) => {
                 allAppointments.push(...storedAppointmentData);
             }
 
-            setDoctorData({ name, speciality: storedDoctorData[name].speciality });
+            allAppointments.forEach(app => {
+                const { phoneNumber, time, date } = app;
+                
+                setDoctorData({ name, speciality: storedDoctorData[name].speciality, phoneNumber, time, date});
+
+            })
+            // setDoctorData({ name, speciality: storedDoctorData[name].speciality, ...xx});
         });
 
         if (allAppointments.length > 0) {
@@ -73,13 +80,13 @@ const Notification = ({ children }) => {
               <strong>Specialty:</strong> {doctorData?.speciality}
             </p>
             <p>
-              <strong>Phone Number:</strong> {appointmentData?.phoneNumber}
+              <strong>Phone Number:</strong> {doctorData?.phoneNumber}
             </p>
             <p>
-              <strong>Date of Appointment:</strong> {appointmentData?.date}
+              <strong>Date of Appointment:</strong> {doctorData?.date}
             </p>
             <p>
-              <strong>Time Slot:</strong> {appointmentData?.time}
+              <strong>Time Slot:</strong> {doctorData?.time}
             </p>
             {/* Add appointment time and date here */}
             {/* Example: <p><strong>Time:</strong> {appointmentData.time}</p> */}
