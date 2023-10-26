@@ -1,0 +1,13 @@
+span {
+    cursor: pointer;
+    color: #ccc;
+  }
+  
+  span:hover,
+  span:hover ~ span {
+    color: #FFD700;
+  }
+  
+  span.selected {
+    color: #FFD700;
+  }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Rating from '../Rating/Rating'
 function GiveReviews() {
   const [showForm, setShowForm] = useState(false);
   const [submittedMessage, setSubmittedMessage] = useState('');
@@ -26,12 +27,12 @@ function GiveReviews() {
   };
   return (
     <div>
-      <h2>Form with Message</h2>
+      {/* <h2>Form with Message</h2> */}
       {!showForm ? (
-        <button onClick={handleButtonClick}>Open Form</button>
+        <button onClick={handleButtonClick}>Click Here</button>
       ) : (
         <form onSubmit={handleSubmit}>
-          <h2>Give Your Feedback</h2>
+          <h2>Give Your Review</h2>
                {showWarning && <p className="warning">Please fill out all fields.</p>}
                 <div>
                    <label htmlFor="name">Name:</label>
@@ -40,6 +41,9 @@ function GiveReviews() {
                 <div>
                  <label htmlFor="review">Review:</label>
                   <textarea id="review" name="review" value={formData.review} onChange={handleChange} />
+                 </div>
+                 <div>
+                 <Rating/>
                  </div>
                  <button type="submit">Submit</button>
                </form>

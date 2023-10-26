@@ -1,21 +1,24 @@
 import React from 'react';
 import './ReviewsPage.css';
+import ReviewsForm from '../ReviewForm/ReviewForm';
+
 const ReviewsPage = () => {
   // Sample data for doctor's appointments
   const appointments = [
     {
       id: 1,
       doctorName: 'Dr. Smith',
-      date: '2023-11-15',
-      time: '10:00 AM',
+      doctorSpeciality: 'Cardiology',
       feedbackLink: '/review-form/1', // Replace with the actual link
+      reviewgiven: ''
     },
     {
       id: 2,
       doctorName: 'Dr. Johnson',
-      date: '2023-11-20',
-      time: '2:30 PM',
+      doctorSpeciality: 'Cardiology',
       feedbackLink: '/review-form/2', // Replace with the actual link
+      reviewgiven: ''
+
     },
     // Add more appointment data here
   ];
@@ -26,21 +29,24 @@ const ReviewsPage = () => {
       <table>
         <thead>
           <tr>
-            <th>Doctor</th>
-            <th>Date</th>
-            <th>Time</th>
+            <th>Serial No</th>
+            <th>Doctor Name</th>
+            <th>Doctor Speciality</th>
             <th>Provide Feedback</th>
+            <th>Review Given</th>
           </tr>
         </thead>
         <tbody>
-          {appointments.map(appointment => (
+          {appointments.map((appointment, index) => (
             <tr key={appointment.id}>
+              <td>{index + 1}</td>
               <td>{appointment.doctorName}</td>
-              <td>{appointment.date}</td>
-              <td>{appointment.time}</td>
+              <td>{appointment.doctorSpeciality}</td>
               <td>
-                <a className="button" href={appointment.feedbackLink}>Provide Feedback</a>
+              <ReviewsForm/>
+               
               </td>
+              <td>{appointment.reviewgiven}</td>
             </tr>
           ))}
         </tbody>
@@ -50,3 +56,4 @@ const ReviewsPage = () => {
 };
 
 export default ReviewsPage;
+ {/* <a className="button" href={appointment.feedbackLink}>Provide Feedback</a> */}
