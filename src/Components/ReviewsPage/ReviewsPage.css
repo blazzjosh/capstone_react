@@ -1,0 +1,69 @@
+/* ReviewsPage.css */
+
+.reviewspage-container {
+  
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 15%;
+    color: #414146;
+    padding: 0 20px;
+    position: static;
+    width: 100%;
+  }
+  
+  .reviewspage-container img {
+    max-width: 100%;
+  }
+  
+  .reviews-results-container .doctorcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 18px;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  .reviews-results-container > h2 {
+    text-align: left;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .reviews-results-container > h3 {
+    margin-top: 12px;
+    color: #2d2d32;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Header styles */
+table th {
+    background-color: gray;
+    color: white;
+}
+.button {
+    background-color: #0056D1;
+    color: white;
+    border: none;
+    border-radius: 2%;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
