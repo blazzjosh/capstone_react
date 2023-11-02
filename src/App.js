@@ -13,6 +13,7 @@ import Login from './Components/Login/Login';
 import Notification from './Components/Notification/Notification';
 import ReviewsPage from './Components/ReviewsPage/ReviewsPage';
 import ProfileForm from './Components/ProfileCard/ProfileCard';
+import ReportLayout from './Components/ReportsLayout/ReportsLayout';
 
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/search/doctors" element={<FindDoctorSearch />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/profile" element={<ProfileForm />} />
+            <Route path='/reports' element={<ReportLayout/>} />
           </Routes>
         </BrowserRouter>
       </div>
