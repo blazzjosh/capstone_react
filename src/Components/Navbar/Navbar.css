@@ -17,7 +17,8 @@ nav {
     left: 0;
     z-index: 1;
     display: none;
-    min-width: 120px;
+    min-width: 150px;
+    min-height: 150px;
     padding: 8px 0;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
