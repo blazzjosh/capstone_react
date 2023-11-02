@@ -83,7 +83,6 @@ const Navbar = () => {
         </li>
         {isLoggedIn?(
           <>
-          
           <div className="link welcome-user">
             <Link to="#" className="navbar-link">
               Welcome, {username}
@@ -95,9 +94,6 @@ const Navbar = () => {
                 </ul>
             </div>
           </div>
-
-
-          
             <li className="link">
               <button className="btn2" onClick={handleLogout}>
                 Logout

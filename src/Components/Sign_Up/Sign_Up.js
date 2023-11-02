@@ -10,9 +10,19 @@ const Sign_Up = () => {
     const [password, setPassword] = useState('');
     const [showerr, setShowerr] = useState('');
     const navigate = useNavigate();
+
+    const [phoneError, setPhoneError] = useState('');
     
     const register = async (e) => {
         e.preventDefault();
+
+        // Validate phone number
+        if (!/^\\d{10}$/.test(phone)) {
+            setPhoneError('Please enter a valid 10 digit phone number');
+            return;
+        } else {
+            setPhoneError('');
+        }
         // API Call
         const response = await fetch(`${API_URL}/api/auth/register`, {
             method: "POST",
@@ -73,6 +83,7 @@ const Sign_Up = () => {
                 <div className="form-group">
                     <label htmlFor="phone">Phone</label>
                     <input value={phone} onChange={(e) => setPhone(e.target.value)}  type="tel" name="phone" id="phone" required className="form-control" placeholder="Enter your phone number" aria-describedby="helpId" />
+                    {phoneError && <div className="err" style={{ color: 'red' }}>{phoneError}</div>}
                 </div>
                
                  <div className="form-group">

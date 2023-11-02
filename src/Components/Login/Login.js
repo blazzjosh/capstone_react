@@ -8,14 +8,26 @@ import { API_URL } from '../../config';
 const Login = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+
     const navigate = useNavigate();
     useEffect(() => {
       if (sessionStorage.getItem("auth-token")) {
         navigate("/")
       }
     }, [navigate]);
+
     const login = async (e) => {
       e.preventDefault();
+
+       // Validate password length
+       if (password.length < 8) {
+        setPasswordError('Password must be at least 8 characters long');
+        return;
+    } else {
+        setPhoneError('');
+    }
+      
       const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: {
@@ -65,6 +77,7 @@ const Login = () => {
                       <div className="form-group">
                           <label htmlFor="email">Password</label>
                           <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" className="form-control" placeholder="Enter your password" aria-describedby="helpId" />
+                          {passwordError && <div className="err" style={{ color: 'red' }}>{passwordError}</div>}
                       </div>
                 <div className="btn-group">
                   <button type="submit" className="btn btn-primary mb-2 mr-1 waves-effect waves-light">Login</button>

@@ -9,6 +9,8 @@ function GiveReviews() {
         review: '',
         rating: 0
       });
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleButtonClick = () => {
     setShowForm(true);
   };
@@ -21,6 +23,7 @@ function GiveReviews() {
     setFormData('');
         if (formData.name && formData.review && formData.rating > 0) {
           setShowWarning(false);
+          setIsSubmitted(true);
         } else {
           setShowWarning(true);
         }
@@ -45,7 +48,7 @@ function GiveReviews() {
                  <div>
                  <Rating/>
                  </div>
-                 <button type="submit">Submit</button>
+                 <button type="submit" disabled={isSubmitted}>Submit</button>
                </form>
       )}
       {submittedMessage && (
