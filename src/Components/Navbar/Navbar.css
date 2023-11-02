@@ -17,7 +17,7 @@ nav {
     left: 0;
     z-index: 1;
     display: none;
-    min-width: 150px;
+    min-width: 100px;
     min-height: 150px;
     padding: 8px 0;
     background-color: #fff;

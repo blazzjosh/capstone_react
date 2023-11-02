@@ -89,7 +89,10 @@ const Navbar = () => {
               Welcome, {username}
             </Link>
             <div className="dropdown-menu">
-              <Link to="/profile">Your Profile</Link>
+                <ul>
+                    <li><Link to="/profile">Your Profile</Link></li>
+                    <li><Link to="/reports">Your Reports</Link></li>
+                </ul>
             </div>
           </div>
 
